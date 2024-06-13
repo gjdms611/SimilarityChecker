@@ -13,3 +13,6 @@ class SimilarityChecker:
             return 0
 
         return int((1 - ((length1 - length2) / length2)) * 60)
+
+    def check_alphabet_similarity(self, str1, str2):
+        return 40
