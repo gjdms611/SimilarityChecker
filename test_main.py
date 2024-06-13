@@ -33,6 +33,8 @@ class TestSimilarityChecker(TestCase):
 
     def test_partial_matched_alphabet(self):
         self.assert_matched_alphabet_result(20, "ABC", "ABE")
+        self.assert_matched_alphabet_result(20, "ABBBC", "ABE")
+        self.assert_matched_alphabet_result(1, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "AAAAAAAAA")
 
     def assert_matched_alphabet_result(self, score, str1, str2):
         ret = self.checker.check_alphabet_similarity(str1, str2)
