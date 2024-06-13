@@ -15,4 +15,6 @@ class SimilarityChecker:
         return int((1 - ((long_len - short_len) / short_len)) * 60)
 
     def check_alphabet_similarity(self, str1, str2):
+        if str1 != str2:
+            return 0
         return 40
