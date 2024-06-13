@@ -16,3 +16,13 @@ class TestSimilarityChecker(TestCase):
         self.assertEqual(ret, 0)
         ret = self.checker.check_length_similarity("ABC", "A")
         self.assertEqual(ret, 0)
+
+    def test_different_length(self):
+        ret = self.checker.check_length_similarity("ABCDE", "ABC")
+        self.assertEqual(ret, 20)
+        ret = self.checker.check_length_similarity("ABC", "ABCDE")
+        self.assertEqual(ret, 20)
+        ret = self.checker.check_length_similarity("ABCE", "ABC")
+        self.assertEqual(ret, 40)
+        ret = self.checker.check_length_similarity("ABCDEFDDG", "ABCASGD")
+        self.assertEqual(ret, 42)
