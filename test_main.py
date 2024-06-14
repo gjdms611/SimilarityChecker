@@ -25,5 +25,8 @@ class TestSimilarityChecker(TestCase):
         self.assertEqual(ret, score)
 
     def test_same_alphabet(self):
-        ret = self.checker.check_alphabet_similarity("ABC", "ABC")
-        self.assertEqual(ret, 40)
+        self.assert_matched_alphabet_result(40, "ABC", "ABC")
+
+    def assert_matched_alphabet_result(self, score, str1, str2):
+        ret = self.checker.check_alphabet_similarity(str1, str2)
+        self.assertEqual(ret, score)
