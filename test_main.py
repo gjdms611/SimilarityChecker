@@ -23,3 +23,7 @@ class TestSimilarityChecker(TestCase):
     def assert_matched_result(self, str1, str2, score):
         ret = self.checker.check_length_similarity(str1, str2)
         self.assertEqual(ret, score)
+
+    def test_same_alphabet(self):
+        ret = self.checker.check_alphabet_similarity("ABC", "ABC")
+        self.assertEqual(ret, 40)
