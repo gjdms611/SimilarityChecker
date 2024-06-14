@@ -3,13 +3,21 @@ class SimilarityChecker:
         pass
 
     def check_length_similarity(self, str1, str2):
-        length1 = len(str1)
-        length2 = len(str2)
+        long_len = len(str1)
+        short_len = len(str2)
 
-        if length2 > length1:
-            length1, length2 = length2, length1
+        if short_len > long_len:
+            long_len, short_len = short_len, long_len
 
-        if length1 > length2 * 2:
+        if long_len > short_len * 2:
             return 0
 
-        return int((1 - ((length1 - length2) / length2)) * 60)
+        return int((1 - ((long_len - short_len) / short_len)) * 60)
+
+    def check_alphabet_similarity(self, str1, str2):
+        same_cnt = 0
+        for char1 in set(str1):
+            if char1 in str2:
+                same_cnt += 1
+
+        return int(same_cnt / len(set(str1 + str2)) * 40)
